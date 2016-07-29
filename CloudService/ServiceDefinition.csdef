@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+  <WorkerRole name="Yams" vmsize="Small">
+    <Runtime executionContext="elevated" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="StorageDataConnectionString" />
+      <Setting name="UpdateFrequencyInSeconds" />
+      <Setting name="ApplicationRestartCount" />
+    </ConfigurationSettings>
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+      <Import moduleName="RemoteForwarder" />
+    </Imports>
+    <LocalResources>
+      <LocalStorage name="NETFXInstall" sizeInMB="1024" cleanOnRoleRecycle="false" />
+      <LocalStorage name="LocalStoreDirectory" cleanOnRoleRecycle="false" />
+    </LocalResources>
+    <Startup>
+      <Task commandLine="install_dotnet_update.cmd" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="PathToNETFXInstall">
+            <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='NETFXInstall']/@path" />
+          </Variable>
+        </Environment>
+      </Task>
+      <Task commandLine="ServerGC.cmd" executionContext="elevated" taskType="simple">
+        <Environment>
+          <Variable name="UseServerGC" value="True" />
+          <Variable name="UseBackgroundGC" value="True" />
+        </Environment>
+      </Task>
+    </Startup>
+    <Endpoints>
+      <!--<InputEndpoint name="Https" protocol="https" port="443" certificate="your-certificate.net"/>-->
+      <InputEndpoint name="http-80" protocol="http" port="80"/>
+      <InputEndpoint name="http-81" protocol="http" port="81"/>
+      <InputEndpoint name="http-8080" protocol="http" port="8080"/>
+      <InputEndpoint name="http-8081" protocol="http" port="8081"/>
+      <InternalEndpoint name="TcpEndpoints" protocol="tcp">
+        <FixedPortRange min="9000" max="45000"/>
+      </InternalEndpoint>
+    </Endpoints>
+  </WorkerRole>
+</ServiceDefinition>

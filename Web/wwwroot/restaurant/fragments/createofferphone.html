@@ -1,0 +1,101 @@
+﻿<div class="container-fluid otterpop-central-settings" style="background-color: #fff; color: rgb(62, 121, 127); height: 100%; padding: 0 !important; margin: 60px 30px 30px 30px !important; min-width: calc(100vw - 60px) !important; width: calc(100vw - 60px) !important">
+    <div class="row" style="margin-bottom: 62px !important">
+        <div class="vert-centre-element" style="background-color: #fff; position: absolute; height: 100px; width: 100px; border-radius: 50px; top: 132px; left: calc(50% - 50px); box-shadow: 0px 12px 29px 0px rgba(0, 0, 0, 0.22);">
+            <div class="text-center" style="width: 100%; margin-top: 4px">
+                <span class="glyphicon glyphicon-tag" style="color: rgb(62, 121, 127); font-size: 3.4em"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center" style="font-size: 1.25em; color: rgb(79, 81, 89); padding-bottom: 28px !important">
+        <b>Offer Settings</b>
+    </div>
+    <div class="row" style="padding-left: 25px !important; padding-right: 25px !important">
+        Title
+    </div>
+    <div class="row" style="padding-bottom: 25px !important; padding-left: 25px !important; padding-right: 25px !important">
+        <input style="text-align: left;" class="otterpop-restaurant-input" placeholder="Title" type="text" ng-model="offer.title" />
+    </div>
+    <div class="row" style="padding-bottom: 24px !important; padding-left: 25px !important; padding-right: 25px !important">
+        <div class="col-xs-6 nopadormargin" style="padding-right: 25px !important">
+            <div class="row">
+                <span>Duration (hrs)</span>
+            </div>
+            <div class="row">
+                <input style="text-align: left;" class="otterpop-restaurant-input" placeholder="Hours" type="text" ng-model="hours" />
+            </div>
+        </div>
+        <div class="col-xs-6 nopadormargin" style="padding-left: 25px !important">
+            <div class="row">
+                Expires
+            </div>
+            <div class="row">
+                <span class="otterpop-restaurant-input" style="border-bottom: none">{{offer.readableExpiry}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-bottom: 24px !important; padding-left: 25px !important; padding-right: 25px !important">
+        <div class="col-xs-4 nopadormargin" style="padding-right: 33px !important">
+            <div class="row">
+                Quantity
+            </div>
+            <div class="row">
+                <input style="text-align: left;" class="otterpop-restaurant-input" placeholder="Quantity" type="text" ng-model="offer.remainingCoupons" />
+            </div>
+        </div>
+        <div class="col-xs-4 nopadormargin" style="padding-right: 17px !important; padding-left: 17px !important">
+            <div class="row">
+                Normal Price
+            </div>
+            <div class="row">
+                <input style="text-align: left;" class="otterpop-restaurant-input" placeholder="Normal Price" type="text" ng-model="offer.normalPrice" />
+            </div>
+        </div>
+        <div class="col-xs-4 nopadormargin" style="padding-left: 33px !important">
+            <div class="row">
+                Discount Price
+            </div>
+            <div class="row">
+                <input style="text-align: left;" class="otterpop-restaurant-input" placeholder="Discount Price" type="text" ng-model="offer.discountPrice" />
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding-left: 25px !important; padding-right: 25px !important">
+        Terms
+    </div>
+    <div class="row" style="padding-bottom: 25px !important; padding-left: 25px !important; padding-right: 25px !important">
+        <textarea style="text-align: left; resize: none; height: 130px" class="otterpop-restaurant-input" placeholder="Description" type="text" ng-model="offer.body"></textarea>
+    </div>
+    <div class="row" style="padding-bottom: 18px !important; padding-left: 25px !important; padding-right: 25px !important">
+        Images
+    </div>
+    <div class="col-xs-12 nopadormargin" style="padding-left: 25px !important; padding-right: 5px !important; padding-bottom: 5px !important">
+        <div class="row nopadormargin" ui-sortable="sortableOptions" ng-model="offer.imageUrls">
+            <div class="col-xs-4 candrag text-center cursor-pointer" ng-repeat="imageUrl in offer.imageUrls" style="border-radius: 30px; overflow: hidden; margin-bottom: 20px; margin-right: 20px; width: 150px; height: 150px">
+                <div ng-mouseenter="hoverval[$index] = true" ng-click="replaceImage($index)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; min-width: 80px; min-height: 80px;">
+                    <img ng-src="{{imageUrl}}" style="width: auto; height: auto; max-width: 100%;" />
+                </div>
+                <div ng-mouseleave="hoverval[$index] = false" ng-if="hoverval[$index]" ng-click="replaceImage($index)" class="vert-centre-element" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; height: 180px; min-width: 80px; min-height: 80px;">
+                    <div class="text-center" ng-if="!busy">
+                        <span class="row text-center" style="justify-content: center;"><span class="glyphicon glyphicon-repeat" style="font-size: 3.4em; color: #fff; text-shadow: 0px 0px 2px #000; top: -7px;"></span></span>
+                    </div>
+                </div>
+                <input type="file" style="display: none" id="changefile" name="changefile" onchange="angular.element(this).scope().upload()" />
+            </div>
+            <div class="col-xs-4 disabledrag text-center cursor-pointer" ng-class="{'no-top-padding': offer.imageUrls.length < 3}" style="border-radius: 30px; overflow: hidden; margin-bottom: 20px; margin-right: 20px; width: 150px; height: 150px; background-color:rgb(244, 125, 99);">
+                <div ng-click="replaceImage(-1)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: -16.5px; left: 2px; width: 100%; height: 180px; min-width: 80px; min-height: 80px;">
+                    <span class="glyphicon glyphicon-plus" style="font-size: 4.0em; color: white;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nopadormargin" style="background: #fff; border-radius: 0 0 26px 26px; height: 72px;">
+        <div class="row">
+            <div class="col-xs-6 nopadormargin">
+                <button class="btn" style="background-color: rgb(226, 91, 91); color: white; border-radius: 0 0 0 16px !important; font-size: 1.4em; height: 72px; width: 100%" ng-click="cancel()"><b>Cancel</b></button>
+            </div>
+            <div class="col-xs-6 nopadormargin">
+                <button class="btn" style="background-color: rgb(49, 176, 52); color: white; border-radius: 0 0 16px 0 !important; font-size: 1.4em; height: 72px; width: 100%" ng-click="saveChanges()"><b>Save</b></button>
+            </div>
+        </div>
+    </div>
+</div>

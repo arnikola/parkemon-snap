@@ -1,0 +1,25 @@
+﻿<div class="row nopadormargin otterpop-offer-coupon-grid-margin">
+    <div ng-repeat="offer in offers" class="otterpop-app-coupon flex-column">
+        <a ng-href="{{'/#/deal/' + offer.offer.id}}" style="width: 320px; height: 480px; position: absolute; z-index: 100"></a>
+        <div class="row nopadormargin" style="height: 160px; max-height: 160px; overflow: hidden;">
+            <img ng-src="{{offer.offer.imageUrls.length > 0 ? offer.offer.imageUrls[0] : offer.restaurant.imageUrls[0]}}" style="min-width: 100%; height: auto; pointer-events: none" />
+        </div>
+        <div class="row nopadormargin" style="height: 0; padding-bottom: 55px !important;">
+            <div ng-if="offer.restaurant.logoUrl" class="vert-centre-element" style="width: 80px; height: 80px; background-color: #fff; position: relative; border-radius: 20px; top: -40px; left: calc(50% - 40px); overflow: hidden">
+                <img ng-src="{{offer.restaurant.logoUrl}}" style="width: 80px; height: 80px; pointer-events: none" />
+            </div>
+        </div>
+        <div class="row text-center otterpop-central-app-notable-medium" style="padding-bottom: 5px !important; padding-left: 8px !important; padding-right: 8px !important;">
+            {{offer.offer.title}}
+        </div>
+        <div class="row text-center flexitem" style="font-size: 16px; color: rgb(79, 81, 89); padding-bottom: 8px !important; padding-left: 8px !important; padding-right: 8px !important;">
+            {{offer.offer.body}}
+        </div>
+        <div class="row text-center" style="font-size: 14px; color: rgb(79, 81, 89); padding-left: 8px !important; padding-right: 8px !important;">
+            <b>{{offer.restaurant.name}}</b>
+        </div>
+        <div class="row text-center" style="font-size: 14px; color: rgb(79, 81, 89); padding-bottom: 8px !important; padding-left: 8px !important; padding-right: 8px !important;">
+            {{offer.restaurant.address}}
+        </div>
+    </div>
+</div>

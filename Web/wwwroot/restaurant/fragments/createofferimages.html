@@ -1,0 +1,42 @@
+﻿<div class="modal-body container-fluid" style="background-color: #fff; height: 100%; padding: 0 !important; border-top-left-radius: 26px; border-top-right-radius: 26px;">
+    <div class="row" style="padding-bottom: 72px !important">
+        <div class="vert-centre-element" style="background-color: #fff; position: absolute; height: 100px; width: 100px; border-radius: 50px; top: -50px; left: calc(50% - 50px); box-shadow: 0px 12px 29px 0px rgba(0, 0, 0, 0.22);">
+            <div class="text-center" style="width: 100%; margin-top: 4px">
+                <span class="icon-pictures_icons512px" style="color: rgb(62, 121, 127); font-size: 3.4em"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center" style="padding-bottom: 28px !important; font-size: 1.25em; color: rgb(79, 81, 89);">
+        <b>Offer Images</b>
+    </div>
+    <div class="col-xs-12 nopadormargin hide-scrollbar" style="padding: 0 38px 40px 38px !important">
+        <div class="row nopadormargin int-hide-scrollbar-bah otterpop-images" ui-sortable="sortableOptions" ng-model="offer.imageUrls">
+            <div class="col-xs-4 candrag text-center cursor-pointer" ng-class="{'no-top-padding': $index < 3}" ng-repeat="imageUrl in offer.imageUrls" style="border-radius: 30px; overflow: hidden; margin: 20px; width: 180px; height: 180px">
+                <div ng-mouseenter="hoverval[$index] = true" ng-click="replaceImage($index)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; min-width: 80px; min-height: 80px;">
+                    <img ng-src="{{imageUrl}}" style="width: auto; height: auto; max-width: 100%;" />
+                </div>
+                <div ng-mouseleave="hoverval[$index] = false" ng-if="hoverval[$index]" ng-click="replaceImage($index)" class="vert-centre-element" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; height: 180px; min-width: 80px; min-height: 80px;">
+                    <div class="text-center" ng-if="!busy">
+                        <span class="row text-center" style="justify-content: center;"><span class="glyphicon glyphicon-repeat" style="font-size: 3.4em; color: #fff; text-shadow: 0px 0px 2px #000; top: 8px;"></span></span>
+                    </div>
+                </div>
+                <input type="file" style="display: none" id="changefile" name="changefile" onchange="angular.element(this).scope().upload()" />
+            </div>
+            <div class="col-xs-4 disabledrag text-center cursor-pointer" ng-class="{'no-top-padding': offer.imageUrls.length < 3}" style="border-radius: 30px; overflow: hidden; margin: 20px; width: 180px; height: 180px; background-color:rgb(244, 125, 99);">
+                <div ng-click="replaceImage(-1)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: -1.5px; left: 2px; width: 100%; height: 180px; min-width: 80px; min-height: 80px;">
+                    <span class="glyphicon glyphicon-plus" style="font-size: 4.0em; color: white;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer container-fluid nopadormargin" style="background: #fff; border-radius: 0 0 26px 26px; height: 72px">
+    <div class="row">
+        <div class="col-xs-6 nopadormargin">
+            <button class="btn" style="background-color: rgb(226, 91, 91); color: white; border-radius: 0 0 0 26px; font-size: 1.4em; height: 72px; width: 100%" ng-click="cancel()"><b>Cancel</b></button>
+        </div>
+        <div class="col-xs-6 nopadormargin">
+            <button class="btn" style="background-color: rgb(49, 176, 52); color: white; border-radius: 0 0 26px 0; font-size: 1.4em; height: 72px; width: 100%" ng-click="done()"><b>Save</b></button>
+        </div>
+    </div>
+</div>

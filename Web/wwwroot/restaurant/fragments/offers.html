@@ -1,0 +1,60 @@
+﻿<div class="otterpop-central container-fluid">
+    <div class="row otterpop-size-adjusting-padding" style="min-height: calc(100vh - 122px - 50px - 105px)">
+        <div ng-repeat="offer in offers track by $index" ng-show="!offer.hidden" ng-class="{'entry-margin-threes': $index % 3 !== 2, 'entry-margin-twos': $index % 2 !== 1}" class="col-xs-12 col-sm-6 col-md-4 nopadormargin standard-dropshadow long-coupon-height" style="font-size: 1.4em; margin-bottom: 20px !important; width: 290px; background-color: white">
+            <div class="row otterpop-coupon-normal vert-centre-element" style="height: 64px; color: white">
+                <div class="row text-right" style="width: 100%">
+                    <span class="glyphicon glyphicon-pencil cursor-pointer" uib-dropdown-toggle style="padding-right: 16px" ng-click="toggleDropdown($index)"></span>
+                </div>
+                <div class="standard-dropshadow" ng-show="isopen[$index]" style="position: absolute; right: 0; top: 64px; width: 140px; padding-left: 20px; z-index: 500;">
+                    <li role="menuitem" class="dropdown vert-centre-element" style="height: 29px"><a class="cursor-pointer" ng-click="global.offerSettings($index)" style="position: absolute; height: 100%; width:120px; left: 0"></a><span class="otterpop-dropdown-link" style="padding-left: 24px">Edit</span></li>
+                    <li role="menuitem" class="dropdown vert-centre-element" style="height: 29px"><a class="cursor-pointer" ng-click="deleteOffer($index)" style="position: absolute; height: 100%; width:120px; left: 0"></a><span class="otterpop-dropdown-link" style="padding-left: 24px">Delete</span></li>
+                </div>
+            </div>
+            <div class="row" style="height: 40px">
+                <div style="background-color: rgb(23, 146, 148); position: absolute; height: 84px; width: 84px; border-radius: 16px; top: 20px; left: calc(50% - 42px);">
+                    <img ng-show="offer.imageUrls && offer.imageUrls.length > 0" ng-src="{{offer.imageUrls[0]}}" style="width: 84px; height: 84px; border-radius: 16px;" />
+                    <img ng-show="!offer.imageUrls || offer.imageUrls.length === 0" ng-src="{{global.restaurant.details.logoUrl}}" style="width: 84px; height: 84px; border-radius: 16px;" />
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 43px; font-size: 0.6em">
+                <div class="text-center" style="width: 100%">
+                    <b>{{offer.title}}</b>
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 30px; font-size: 0.6em">
+                <div class="col-xs-8">
+                    Coupons Issued:
+                </div>
+                <div class="col-xs-4 text-right">
+                    {{offer.activatedCoupons}}
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 30px; font-size: 0.6em">
+                <div class="col-xs-8">
+                    Coupons Available: 
+                </div>
+                <div class="col-xs-4 text-right">
+                    <input ng-change="updateOffer[$index]()" style="text-align: right; padding-bottom: 2px; width: 24px; font-size: 15px; font-weight: bold" class="otterpop-restaurant-input" placeholder="Quantity" type="text" ng-model="offer.remainingCoupons" />
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 13px; font-size: 0.75em">
+            </div>
+            <div class="row" style="height: 40px">
+                <div ng-show="offer.active" class="col-xs-12 nofocusborder nopadormargin vert-centre-element otterpop-nav-link cursor-pointer" style="height: 100%; background-color: rgb(49, 176, 52); font-size: 18px">
+                    <a ng-click="publishOffer($index)" style="position: absolute; width: 100%; height: 40px; top: 0; left: 0;">
+                    </a>
+                    <div class="row text-center" style="width: 100%">
+                         Published
+                    </div>
+                </div>
+                <div ng-show="!offer.active" class="col-xs-12 nofocusborder nopadormargin vert-centre-element otterpop-nav-link cursor-pointer" style="height: 100%; background-color: rgb(226, 91, 91); font-size: 18px">
+                    <a ng-click="publishOffer($index)" style="position: absolute; width: 100%; height: 40px; top: 0; left: 0;">
+                    </a>
+                    <div class="row text-center" style="width: 100%">
+                        Unpublished
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

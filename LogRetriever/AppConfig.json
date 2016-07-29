@@ -1,0 +1,4 @@
+﻿{
+  "ExeName": "LogRetriever.exe",
+  "ExeArgs": "-environment ${DeploymentId}"
+}

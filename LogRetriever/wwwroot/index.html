@@ -1,0 +1,88 @@
+﻿<!doctype html>
+<html lang="en" ng-app="logRetriever" ng-controller="RootCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LogViewer</title>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="./script/app.js"></script>
+    <script src="./script/services.js"></script>
+    <script src="./script/controllers.js"></script>
+    <div class="container-fluid nohpad" style="padding-bottom: 10px !important">
+        <div class="row nohpad">
+            <div class="col-md-12 col no-padding single-column-margin height-100">
+                <div class="panel panel-primary flex-column">
+                    <div class="h3 panel-heading flexitem flexnoshrink flexnogrow">
+                        <span class="row panel-heading-height">
+                            <span class="col-md-10 vert-centre-element panel-heading-height nohpad">
+                                <b>Logs</b>
+                            </span>
+                         </span>
+                    </div>
+                    <div class="container-fluid panel-body nopadormargin flexitem flex-column">
+                        <div style="padding-bottom: 15px">
+                            <div class="flexitem flexnogrow flexnoshrink table-start-padding">
+                                <span class="row">
+                                    <span class="col-md-1 h5">Show:</span>
+                                    <span class="col-md-10">
+                                        <span ng-repeat="node in nodes" class="h5 col-md-2">
+                                            <input type="checkbox" ng-model="showNodes[$index]" /> {{node}}
+                                        </span>
+                                    </span>
+                                    <span class="col-md-1 h5">
+                                        <input type="checkbox" ng-model="showEmpty" /> empty logs
+                                    </span>
+                                </span>
+                                <table class="table table-striped vline nopadormargin no-border">
+                                    <thead>
+                                    <tr>
+                                        <th class="col-md-2 no-border nohpad h4"><b ng-click="order('nodeName')">Node</b>
+                                            <span class="sortorder" ng-if="orderBy === 'nodeName'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th class="col-md-5 no-border nohpad h4"><b ng-click="order('name')">Log File</b>
+                                            <span class="sortorder" ng-if="orderBy === 'name'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th class="col-md-1 no-border nohpad h4">
+                                            <b>Subscribe</b>
+                                        </th>
+                                        <th class="col-md-2 no-border nohpad h4"><b ng-click="order('size')">Size</b>
+                                            <span class="sortorder" ng-if="orderBy === 'size'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                        <th class="col-md-2 no-border nohpad h4"><b ng-click="order('modified')">Modified</b>
+                                            <span class="sortorder" ng-if="orderBy === 'modified'" ng-class="{reverse:reverse}"></span>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="table-padding flex-column">
+                                <div class="table-fullylimit nopadormargin flexitem">
+                                    <table class="table table-striped vline nopadormargin">
+                                        <tbody class="breaklongwords">
+                                            <tr ng-repeat="result in results | orderBy:orderBy:reverse"  ng-if="showRow(result)">
+                                                <td class="vcenter col-md-2 no-border">{{result.nodeName}}</td>
+                                                <td class="vcenter col-md-5 no-border"><a ng-href="../logs/{{result.nodeName}}/{{result.name}}">{{result.name}}</a></td>
+                                                <td class="vcenter col-md-1 no-border"><a ng-href="../logs/{{result.nodeName}}/{{result.name}}/subscribe">Subscribe</a></td>
+                                                <td class="vcenter col-md-2 no-border">{{result.readableSize}}</td>
+                                                <td class="vcenter col-md-2 no-border">{{result.modified | date:'HH:mm:ss, MM/dd/yyyy (Z)'}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

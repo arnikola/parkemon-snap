@@ -1,0 +1,40 @@
+﻿<div class="container-fluid otterpop-central-settings">
+    <div class="row" style="font-size: 1.0em; height: 75px;">
+        <div class="col-xs-6 text-center otterpop-coupons" style="border-top-left-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0" ng-href="{{'#/restaurant/'}}"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <b><span class="otterpop-nav-link">Venue Details</span></b>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 text-center otterpop-coupons otterpop-coupons-current" style="border-top-right-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <b><span class="otterpop-nav-link">Pictures &amp; Menus</span></b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 hide-scrollbar" style="padding: 32px 5px 32px 25px !important">
+        <div class="row nopadormargin int-hide-scrollbar-full" ui-sortable="sortableOptions" ng-model="global.restaurant.details.imageUrls" style="min-height:calc(100vh - 122px - 50px - 64px - 75px - 120px);">
+            <div class="col-xs-4 candrag text-center cursor-pointer" ng-class="{'no-top-padding': $index < 3}" ng-repeat="imageUrl in global.restaurant.details.imageUrls" style="border-radius: 30px; overflow: hidden; width: 125px; height: 125px; margin-right: 20px; margin-bottom: 18px">
+                <div ng-mouseenter="hoverval[$index] = true" ng-click="global.replaceImage($index)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; min-width: 80px; min-height: 80px;">
+                    <img ng-src="{{imageUrl}}" style="width: auto; height: auto; max-width: 100%;" />
+                </div>
+                <div ng-mouseleave="hoverval[$index] = false" ng-if="hoverval[$index]" ng-click="global.replaceImage($index)" class="vert-centre-element" style="justify-content: center; position: absolute; top: 0; left: 0; width: 100%; height: 125px; min-width: 80px; min-height: 80px;">
+                    <div class="text-center" ng-if="!busy">
+                        <span class="row text-center" style="justify-content: center;"><span class="glyphicon glyphicon-repeat" style="font-size: 3.4em; color: #fff; text-shadow: 0px 0px 2px #000; top: 8px;"></span></span>
+                    </div>
+                </div>
+                <input type="file" style="display: none" id="changefile" name="changefile" onchange="angular.element(this).scope().upload()" />
+            </div>
+            <div class="col-xs-4 disabledrag text-center cursor-pointer" ng-class="{'no-top-padding': offer.imageUrls.length < 3}" style="border-radius: 30px; background-color: rgb(244, 125, 99); overflow: hidden; width: 125px; height: 125px; margin-right: 25px">
+                <div ng-click="global.replaceImage(-1)" class="vert-centre-element cursor-pointer" style="justify-content: center; position: absolute; top: -1.5px; left: 2px; width: 100%; height: 125px; min-width: 80px; min-height: 80px;">
+                    <span class="glyphicon glyphicon-plus" style="font-size: 3.0em; color: white;"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+﻿{
+  "ExeName": "OrleansSilo.exe",
+  "ExeArgs": "-environment ${DeploymentId}"
+}

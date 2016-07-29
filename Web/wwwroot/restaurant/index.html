@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="otterpopApp" ng-controller="RootCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Otterpop</title>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-cloak style="overflow-x: hidden">
+    <!-- External scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css">
+    <script src="http://cdn.jsdelivr.net/g/jquery@1,jquery.ui@1.10%28jquery.ui.core.min.js+jquery.ui.widget.min.js+jquery.ui.mouse.min.js+jquery.ui.sortable.min.js%29,angularjs@1.2,angular.ui-sortable"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Local scripts-->
+    <script src="../externalscripts/rx.all.js"></script>
+    <script src="../externalscripts/webstreams.js"></script>
+    <script src="../externalscripts/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="../externalscripts/ui-bootstrap.js"></script>
+    <script src="../externalscripts/ui-bootstrap-tpls.js"></script>
+    <script src="../externalscripts/ng-img-crop.js"></script>
+    <link rel="stylesheet" type="text/css" href="../externalscripts/ng-img-crop.css">
+    <script src="../externalscripts/rzslider.js"></script>
+    <link rel="stylesheet" type="text/css" href="../externalscripts/rzslider.css">
+    <script src="../sharedscripts/services.js"></script>
+    <script src="../sharedscripts/directives.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/app.js"></script>
+    <link rel="stylesheet" href="../sharedscripts/app.css">
+    <div class="container-fluid nopadormargin">
+        <div class="row nopadormargin" style="height: 122px; background-image: url('../img/background.png'); background-size: cover">
+            <img class="logo-float hidden-xs" ng-click="global.replaceImage(-2)" ng-show="global.currentPage !== 'login'" ng-src="{{global.restaurant.details.logoUrl}}" />
+            <a class="vert-centre-element cursor-pointer logo-float hidden-xs" ng-if="global.currentPage === 'settings'" ng-click="global.replaceImage(-2)" ng-show="global.currentPage !== 'login'" ng-src="{{global.restaurant.details.logoUrl}}" style="z-index: 500">
+                <span class="row text-center" style="justify-content: center; width: 100%"><span class="glyphicon glyphicon-repeat" style="font-size: 3.4em; color: #fff; text-shadow: 0px 0px 2px #000; top: 8px;"></span></span>
+            </a>
+            <div ng-show="global.currentPage !== 'login'" class="col-xs-12 otterpop-nav" style="padding-top: 76px">
+                <div ng-if="global.currentPage === 'settings'" class="col-xs-1 otterpop-nav-active text-center">
+                    Restaurant
+                </div>
+                <div ng-if="global.currentPage !== 'settings'" class="col-xs-1 otterpop-nav-inactive text-center" style="margin-right: 0 !important">
+                    <a class="otterpop-nav-link" ng-href="{{'#/restaurant'}}" style="position: absolute; width: 140px; height: 46px; top: 0; left: 0;">
+                    </a>
+                    Restaurant
+                </div>
+                <div ng-if="global.currentPage === 'offers'" class="col-xs-1 otterpop-nav-active text-center">
+                    Offers
+                </div>
+                <div ng-if="global.currentPage !== 'offers'" class="col-xs-1 otterpop-nav-inactive text-center">
+                    <a class="otterpop-nav-link" ng-href="{{'#/offers'}}" style="position: absolute; width: 140px; height: 46px; top: 0; left: 0;">
+                    </a>
+                    Offers
+                </div>
+                <div ng-if="global.currentPage === 'coupons'" class="col-xs-1 otterpop-nav-active text-center">
+                    Customers
+                </div>
+                <div ng-if="global.currentPage !== 'coupons'" class="col-xs-1 otterpop-nav-inactive text-center">
+                    <a class="otterpop-nav-link" ng-href="{{'#/'}}" style="position: absolute; width: 140px; height: 46px; top: 0; left: 0;">
+                    </a>
+                    Customers
+                </div>
+            </div>
+            <div>
+                <div ng-if="global.currentPage === 'offers'" class="vert-centre-element create-float">
+                    <a class="otterpop-nav-link nofocusborder cursor-pointer" ng-click="global.offerSettings(-1)" style="border-radius: 100%; position: absolute; width: 100%; height: 100%; cursor: pointer">
+                    </a>
+                    <div class="text-center" style="width: 100%" ng-click="">
+                        <a class="otterpop-nav-link nofocusborder cursor-pointer" ng-click="global.offerSettings(-1)" style="cursor: pointer">
+                            <span style="font-size: 3.0em; padding-top: -1px; padding-left: 1px" class="glyphicon glyphicon-plus"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="base-element row" style="background-color: rgb(243, 243, 243); min-height: calc(100vh - 122px - 50px)" ng-view></div>
+        <div class="row otterpop-footer">
+            <div class="col-xs-9 nopadormargin vert-centre-element" style="height: 100%">
+                © Otterpop 2016
+            </div>
+            <div class="col-xs-3 nopadormargin vert-centre-element" style="height: 100%">
+                <div class="row text-right" style="width: 100%; font-size: 1.4em">
+                    <span class="glyphicon glyphicon-log-out cursor-pointer" style="padding-top: 6px" ng-click="logout()"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

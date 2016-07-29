@@ -1,0 +1,67 @@
+﻿<div class="otterpop-central container-fluid">
+    <div class="row shrinking-headings" style="height: 75px;">
+        <div class="col-xs-6 text-center otterpop-coupons" ng-class="{'otterpop-coupons-current': !showArchived}" style="border-top-left-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0" ng-href="{{'#/'}}"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <span class="otterpop-nav-link">Active</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 text-center otterpop-coupons" ng-class="{'otterpop-coupons-current': showArchived}" style="border-top-right-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0" ng-href="{{'#/archive/'}}"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <span class="otterpop-nav-link">History</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row otterpop-size-adjusting-padding" style="min-height: calc(100vh - 122px - 50px - 105px - 75px)">
+        <div ng-class="{'long-coupon-height': !showArchived, 'short-coupon-height': showArchived, 'entry-margin-threes': $index % 3 !== 2, 'entry-margin-twos': $index % 2 !== 1}" ng-repeat="coupon in sortedCoupons track by $index" class="col-xs-12 col-sm-6 col-md-4 nopadormargin standard-dropshadow" style="font-size: 1.4em; margin-bottom: 20px !important; width: 290px; background-color: white">
+            <div class="row" style="height: 64px" ng-class="{'otterpop-coupon-accepted': coupon.accepted === 'accepted', 'otterpop-coupon-rejected': coupon.accepted === 'rejected', 'otterpop-coupon-expired': coupon.accepted === 'none' && coupon.expiryMillis <= now, 'otterpop-coupon-normal': !showArchived || (coupon.accepted === 'none' && coupon.expiryMillis > now)}"></div>
+            <div class="row" style="height: 40px">
+                <div style="background-color: rgb(23, 146, 148); position: absolute; height: 84px; width: 84px; border-radius: 16px; top: 20px; left: calc(50% - 47px);">
+                    <img ng-src="{{coupon.ownerPicture}}" style="width: 84px; height: 84px; border-radius: 16px;" />
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 44px; font-size: 0.75em">
+                <div class="text-center" style="width: 100%">
+                    {{coupon.ownerName}}
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 19px; font-size: 0.5em">
+                <div class="text-center" style="width: 100%">
+                    <span ng-if="showRedeemed && !showArchived">wants to redeem</span>
+                    <span ng-if="!showRedeemed && !showArchived">is coming to redeem</span>
+                    <span ng-if="showArchived && coupon.accepted === 'none'">had a coupon expire for</span>
+                    <span ng-if="showArchived && coupon.accepted === 'accepted'">had a coupon accepted for</span>
+                    <span ng-if="showArchived && coupon.accepted === 'rejected'">had a coupon rejected for</span>
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 40px; font-size: 0.75em">
+                <div class="text-center" style="width: 100%">
+                    {{coupon.offer.offer.title}}
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="height: 13px; font-size: 0.75em">
+            </div>
+            <div ng-show="!showArchived" class="row" style="height: 40px">
+                <div class="col-xs-6 nopadormargin vert-centre-element cursor-pointer nofocusborder otterpop-nav-link" style="height: 100%; font-size: 18px; background-color: rgb(226, 91, 91)">
+                    <a ng-click="rejectCoupon(coupons.length - 1 - $index)" style="position: absolute; width: 100%; height: 40px; top: 0; left: 0;">
+                    </a>
+                    <div class="row text-center" style="width: 100%">
+                        Reject
+                    </div>
+                </div>
+                <div class="col-xs-6 nopadormargin vert-centre-element cursor-pointer nofocusborder otterpop-nav-link" style="height: 100%; font-size: 18px; background-color: rgb(49, 176, 52)">
+                    <a ng-click="acceptCoupon(coupons.length - 1 - $index)" style="position: absolute; width: 100%; height: 40px; top: 0; left: 0;">
+                    </a>
+                    <div class="row text-center" style="width: 100%">
+                        Accept
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

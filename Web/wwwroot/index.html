@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="otterpopApp" ng-controller="RootCtrl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Otterpop</title>
+    <style>
+        [ng\:cloak], [ng-cloak], .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</head>
+<body ng-cloak ng-class="{'hide-overflow': global.stopbodyoverflow}">
+    <!-- External scripts -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- Local scripts-->
+    <script src="externalscripts/infobox.js"></script>
+    <script src="externalscripts/rx.all.js"></script>
+    <script src="externalscripts/webstreams.js"></script>
+    <script src="externalscripts/jquery.ba-throttle-debounce.min.js"></script>
+    <script src="externalscripts/ui-bootstrap.js"></script>
+    <script src="externalscripts/ui-bootstrap-tpls.js"></script>
+    <script src="externalscripts/ng-img-crop.js"></script>
+    <link rel="stylesheet" type="text/css" href="externalscripts/ng-img-crop.css">
+    <script src="sharedscripts/services.js"></script>
+    <script src="sharedscripts/directives.js"></script>
+    <script src="scripts/controllers.js"></script>
+    <script src="scripts/app.js"></script>
+    <link rel="stylesheet" href="sharedscripts/app.css">
+    <div class="container-fluid nopadormargin fullheight" style="overflow: hidden">
+        <div class="row nopadormargin otterpop-nav-app">
+            <div class="col-xs-6 nopadormargin vert-centre-element" style="height: 100%">
+                <div class="text-left" style="padding-left: 25px; font-family: 'otterpop'; font-size: 2.0em; width: 100%">Otterpop</div>
+            </div>
+            <div class="col-xs-6 nopadormargin vert-centre-element" style="height: 100%">
+                <div class="text-right" style="width: 100%; padding-right: 25px">
+                    <a class="cursor-pointer" ng-show="global.currentPage === 'list' || global.currentPage === 'viewdeal' || global.currentPage === 'viewcoupon'" ng-click="back()" style="margin-left: 8px">
+                        <span style="font-size: 2.0em; color: #fff;" class="glyphicon glyphicon-triangle-left"></span>
+                    </a>
+                    <a href="/#/" style="margin-left: 8px">
+                        <span style="font-size: 2.0em; color: #fff;" class="glyphicon glyphicon-inbox"></span>
+                    </a>
+                    <a href="/#/coupons" style="margin-left: 8px">
+                        <span style="font-size: 2.0em; color: #fff;" class="glyphicon glyphicon-duplicate"></span>
+                    </a>
+                    <a href="/#/map" style="margin-left: 8px">
+                        <span style="font-size: 2.0em; color: #fff" class="glyphicon glyphicon-road"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="base-element row" ng-view autoscroll></div>
+    </div>
+</body>
+</html>

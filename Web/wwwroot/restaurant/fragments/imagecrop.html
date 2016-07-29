@@ -1,0 +1,26 @@
+﻿<div class="modal-body container-fluid" style="height: calc(75vh); background: #fff; border-top-left-radius: 32px; border-top-right-radius: 32px;">
+    <div class="row text-center" ng-show="images.inimage" style="height: 100%;">
+        <img-crop image="images.inimage" result-image="images.outimage" area-type="square" result-image-size="450"></img-crop>
+    </div>
+    <div class="row vert-centre-element" ng-show="!images.inimage" style="height: 100%; cursor: pointer; color: rgb(62, 121, 127); border: 4px dashed rgb(65, 94, 130); border-radius: 8px" ng-click="chooseimage()">
+        <div class="col-xs-12 nopadormargin text-center" style="width:100%;">
+            <span class="icon-pictures_icons512px" ng-if="!busy" style="font-size: 12em"></span>
+            <span class="glyphicon glyphicon-refresh" ng-if="busy" style="font-size: 12em"></span>
+            <br />
+            <br />
+            <span ng-if="busy" style="font-size: 2.0em">Uploading...</span>
+            <span ng-if="!busy" style="font-size: 2.0em">Click to Upload</span>
+            <input style="display:none" type="file" id="createafile" name="createafile" />
+        </div>
+    </div>
+</div>
+<div class="modal-footer container-fluid nopadormargin" style="background: #fff; border-radius: 0 0 26px 26px; height: 72px">
+    <div class="row">
+        <div class="col-xs-6 nopadormargin">
+            <button class="btn" style="background-color: rgb(226, 91, 91); color: white; border-radius: 0 0 0 26px; font-size: 1.4em; height: 72px; width: 100%" ng-click="cancel()"><b>Cancel</b></button>
+        </div>
+        <div class="col-xs-6 nopadormargin">
+            <button class="btn" style="background-color: rgb(49, 176, 52); color: white; border-radius: 0 0 26px 0; font-size: 1.4em; height: 72px; width: 100%" ng-click="done()"><b>Save</b></button>
+        </div>
+    </div>
+</div>

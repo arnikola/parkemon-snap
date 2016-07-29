@@ -1,0 +1,4 @@
+﻿{
+  "ExeName": "Web.exe",
+  "ExeArgs": "-environment ${DeploymentId}"
+}

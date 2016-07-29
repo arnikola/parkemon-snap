@@ -1,0 +1,62 @@
+﻿<div class="container-fluid otterpop-central-settings">
+    <div class="row" style="font-size: 1.0em; height: 75px;">
+        <div class="col-xs-6 text-center otterpop-coupons otterpop-coupons-current" style="border-top-left-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <b><span class="otterpop-nav-link">Venue Details</span></b>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 text-center otterpop-coupons" style="border-top-right-radius: 16px">
+            <a style="width: 100%; height: 75px; position: absolute; left: 0" ng-href="{{'#/images/'}}"></a>
+            <div class="row vert-centre-element" style="height: 100%">
+                <div class="row text-center" style="width: 100%">
+                    <b><span class="otterpop-nav-link">Pictures &amp; Menus</span></b>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="font-size: 12px; color: rgb(82, 132, 138); height: 100%; padding-top: 32px !important">
+        <div class="row">
+            <div class="col-xs-12 col-md-9 nopadormargin twitchy-settings-padding">
+                <div class="row" style="padding-left: 32px !important;">
+                    Business Name
+                </div>
+                <div class="row" style="padding-left: 32px !important; padding-bottom: 20px !important">
+                    <input ng-change="saveChanges()" style="text-align: left;" class="otterpop-restaurant-input" placeholder="Name" type="text" ng-model="global.restaurant.details.name" />
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-3 nopadormargin twitchy-settings-padding-2" style="padding-right: 32px !important;">
+                <div class="row">
+                    Phone Number
+                </div>
+                <div class="row" style="padding-bottom: 20px !important">
+                    <input ng-change="saveChanges()" style="text-align: left;" class="otterpop-restaurant-input" placeholder="Phone Number" type="text" ng-model="global.restaurant.details.phoneNumber" />
+                </div>
+            </div>
+        </div>
+        <div class="row" style="padding-right: 32px !important;padding-left: 32px !important;">
+            Business Address
+        </div>
+        <div class="row" style="padding-right: 32px !important;padding-left: 32px !important;padding-bottom: 20px !important">
+            <input ng-change="saveChanges()" style="text-align: left;" class="otterpop-restaurant-input" placeholder="Address" type="text" ng-model="global.restaurant.details.address" />
+        </div>
+        <div class="row twitchy-description" style="margin-bottom: 20px !important">
+            <div class="col-xs-4 hidden-sm hidden-md hidden-lg nopadormargin text-center" style="padding-left: 32px !important; height:100%; justify-content: center">
+                <img class="settings-image-size" ng-click="global.replaceImage(-2)" ng-show="global.currentPage !== 'login'" ng-src="{{global.restaurant.details.logoUrl}}" style="border-radius: 16.667%" />
+                <a class="vert-centre-element cursor-pointer settings-image-size" ng-if="global.currentPage === 'settings'" ng-click="global.replaceImage(-2)" ng-show="global.currentPage !== 'login'" ng-src="{{global.restaurant.details.logoUrl}}" style="position: absolute; top: 0; left: 32px; z-index: 500; width: 124px; height: 124px">
+                    <span class="row text-center" style="justify-content: center; width: 100%"><span class="glyphicon glyphicon-repeat" style="font-size: 3.4em; color: #fff; text-shadow: 0px 0px 2px #000; top: 0;"></span></span>
+                </a>
+            </div>
+            <div class="col-xs-8 col-md-12 nopadormargin settings-image-row-height" style="padding-right: 32px !important;">
+                <div class="row" style="padding-left: 32px !important;">
+                    Description
+                </div>
+                <div class="row" style="padding-left: 32px !important; height: calc(100% - 17px)">
+                    <textarea ng-change="saveChanges()" style="text-align: left; resize: none; height: 100%" class="otterpop-restaurant-input" placeholder="Description" type="text" ng-model="global.restaurant.details.description"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

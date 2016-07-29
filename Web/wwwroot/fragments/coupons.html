@@ -1,0 +1,38 @@
+﻿<div class="row otterpop-offer-coupon-grid-margin">
+    <div class="otterpop-app-coupon flex-column" ng-repeat="coupon in global.userCoupons.slice().reverse()">
+        <a ng-href="{{'/#/coupons/' + coupon.id}}" style="width: 320px; height: 480px; position: absolute; z-index: 100">
+        </a>
+        <div class="row nopadormargin" style="height: 160px; max-height: 160px; overflow: hidden;">
+            <img ng-src="{{coupon.offer.offer.imageUrls.length > 0 ? coupon.offer.offer.imageUrls[0] : coupon.offer.restaurant.imageUrls[0]}}" style="min-width: 100%; height: auto; pointer-events: none" />
+        </div>
+        <div class="row nopadormargin" style="height: 0; padding-bottom: 55px !important;">
+            <div ng-if="coupon.offer.restaurant.logoUrl" class="vert-centre-element" style="width: 80px; height: 80px; background-color: #fff; position: relative; border-radius: 20px; top: -40px; left: calc(50% - 40px); overflow: hidden">
+                <img ng-src="{{coupon.offer.restaurant.logoUrl}}" style="width: 80px; height: 80px; pointer-events: none" />
+            </div>
+        </div>
+        <div class="flexitem"></div>
+        <div class="row text-center otterpop-central-app-notable-medium" style="padding-bottom: 5px !important; padding-left: 8px !important; padding-right: 8px !important;">
+            {{coupon.offer.offer.title}}
+        </div>
+        <div class="row text-center" style="font-size: 14px; color: rgb(79, 81, 89); padding-left: 8px !important; padding-right: 8px !important;">
+            <b>{{coupon.offer.restaurant.name}}</b>
+        </div>
+        <div class="row text-center" style="font-size: 14px; color: rgb(79, 81, 89); padding-bottom: 8px !important; padding-left: 8px !important; padding-right: 8px !important;">
+            {{coupon.offer.restaurant.address}}
+        </div>
+        <div ng-show="coupon.redeemed || coupon.expiryMillis <= now" style="height: 55px"></div>
+        <div class="flexitem"></div>
+        <div ng-show="!coupon.redeemed && coupon.expiryMillis > now" class="row text-right" style="padding-right: 8px !important; padding-bottom: 8px !important">
+            <span class="icon-notifications_icons512px"></span> <span style="color: rgb(229, 85, 85);">{{coupon.prettyExpiry}}</span>
+        </div>
+        <div ng-show="!coupon.redeemed && coupon.expiryMillis > now" class="row vert-centre-element otterpop-nav-link cursor-pointer nofocusborder" style="z-index: 110; background-color: rgb(49, 176, 52); height: 40px; margin: -1px !important">
+            <div class="col-xs-12 nopadormargin">
+                <a ng-click="redeemCoupon(global.userCoupons.length - 1 - $index)" style="position: absolute; width: 100%; height: 40px; top: 0; left: 0;">
+                </a>
+                <div class="row text-center" style="width: 100%">
+                    Redeem
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

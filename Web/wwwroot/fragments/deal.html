@@ -1,0 +1,72 @@
+﻿<div class="row nopadormargin" style="height: 32vh; overflow: hidden; box-shadow: 0px 12px 29px 0px rgba(0, 0, 0, 0.22);">
+    <img ng-src="{{shownOffer.offer.imageUrls.length > 0 ? shownOffer.offer.imageUrls[0] : shownOffer.restaurant.imageUrls[0]}}" style="min-width: 100%; height: auto;" />
+</div>
+<div class="row nopadormargin" style="height: 0;">
+    <div ng-if="shownOffer.restaurant.logoUrl" class="vert-centre-element" style="width: 16vh; height: 16vh; background-color: #fff; position: relative; border-radius: 20px; top: -8vh; left: calc(50% - 8vh);  overflow: hidden">
+        <img ng-src="{{shownOffer.restaurant.logoUrl}}" style="width: 16vh; height: 16vh;" />
+    </div>
+</div>
+<div class="row otterpop-central-app" style="padding-top: calc(8vh + 20px) !important">
+    <div class="col-xs-12 col-lg-offset-3 col-lg-6" style="padding: 0px !important">
+        <div class="row otterpop-central-app-section text-center" style="background-color: #fff; padding-top: 25px !important; padding-bottom: 25px !important">
+            <b class="otterpop-central-app-notable">{{shownOffer.offer.title}}</b><br />
+            {{shownOffer.offer.body}}
+        </div>
+        <div ng-hide="!showingDeal && shownCoupon && shownCoupon.redeemed" class="row otterpop-central-app-section" style="background-color: #fff; height: 100%; padding-top: 25px !important; padding-bottom: 25px !important">
+            <div ng-show="showingDeal" class="col-xs-6 text-center">
+                <a class="otterpop-offer-settings-cancel" ng-click="declineOffer()" style="cursor: pointer">
+                    DECLINE
+                </a>
+            </div>
+            <div ng-show="showingDeal" class="col-xs-6 text-center">
+                <a class="otterpop-offer-settings-apply" ng-click="acceptOffer()" style="cursor: pointer">
+                    ACCEPT
+                </a>
+            </div>
+            <div ng-show="!showingDeal && shownCoupon && !shownCoupon.redeemed && shownCoupon.expiryMillis > now" class="col-xs-12 text-center">
+                <a class="otterpop-offer-settings-apply" ng-click="redeemCoupon()" style="cursor: pointer; color: rgb(71, 129, 215)">
+                    REDEEM
+                </a>
+            </div>
+        </div>
+        <div ng-if="shownOffer.offer.imageUrls && shownOffer.offer.imageUrls.length > 0" class="row otterpop-central-app-section" style="background-color: #fff; height: 100%; padding-bottom: 25px !important">
+            <div class="row">
+                <div class="col-xs-4 nopadormargin" ng-class="{'margin-20-right': $index % 3 !== 2}" ng-repeat="imageUrl in shownOffer.offer.imageUrls" style="border-radius: 20px; overflow: hidden; max-width: calc((100vw - 50px - 100px) / 3); max-height: calc((100vw - 50px - 80px) / 3); margin-bottom: 20px !important">
+                    <img ng-src="{{imageUrl}}" style="width: auto; height: auto; max-width: 100%;" />
+                </div>
+            </div>
+        </div>
+        <div class="row otterpop-central-app-section" style="background-color: #fff; height: 100%;">
+            <div class="row otterpop-app-section-title" style="font-size: 2.1em">
+                {{shownOffer.restaurant.name}}
+            </div>
+            <div class="row vert-centre-element" style="padding-bottom: 10px !important">
+                <div class="otterpop-app-section-icon vert-centre-element pull-left">
+                    <div class="text-center" style="width: 100%">
+                        <span class="glyphicon glyphicon-map-marker" style="padding-top:4px !important"></span>
+                    </div>
+                </div>
+                <div>
+                    {{shownOffer.restaurant.address}}
+                </div>
+            </div>
+            <div class="row vert-centre-element" style="padding-bottom: 10px !important">
+                <div class="otterpop-app-section-icon vert-centre-element pull-left">
+                    <div class="text-center" style="width: 100%">
+                        <span class="glyphicon glyphicon-phone" style="padding-top:4px !important"></span>
+                    </div>
+                </div>
+                <div>
+                    {{shownOffer.restaurant.phoneNumber}}
+                </div>
+            </div>
+        </div>
+        <div class="row otterpop-central-app-section" style="background-color: #fff; height: 100%; padding-top: 25px !important; padding-bottom: 25px !important">
+            <div class="col-xs-12 text-center">
+                <a class="otterpop-back" href="/#/" style="cursor: pointer">
+                    BACK
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
