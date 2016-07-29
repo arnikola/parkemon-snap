@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{42C1BFFC-F41C-4D73-81FC-C4E03E7623DD}"
 	ProjectSection(SolutionItems) = preProject
@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrleansSilo", "OrleansSilo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceCommon", "ServiceCommon\ServiceCommon.csproj", "{6DEDA797-4736-4642-8361-234386ACDD81}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "CloudService", "CloudService\CloudService.ccproj", "{9D372804-2D9D-41A3-95DD-E5982F83EAAC}"
+Project("{BB40F520-413E-3EBA-ABD4-2177801094F0}") = "CloudService", "CloudService\CloudService.ccproj", "{9D372804-2D9D-41A3-95DD-E5982F83EAAC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.csproj", "{371E40C9-7F6F-4410-B478-318004ABA4B7}"
 EndProject

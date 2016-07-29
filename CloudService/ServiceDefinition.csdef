@@ -7,6 +7,7 @@
       <Setting name="StorageDataConnectionString" />
       <Setting name="UpdateFrequencyInSeconds" />
       <Setting name="ApplicationRestartCount" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" />
     </ConfigurationSettings>
     <Imports>
       <Import moduleName="RemoteAccess" />
@@ -33,12 +34,12 @@
     </Startup>
     <Endpoints>
       <!--<InputEndpoint name="Https" protocol="https" port="443" certificate="your-certificate.net"/>-->
-      <InputEndpoint name="http-80" protocol="http" port="80"/>
-      <InputEndpoint name="http-81" protocol="http" port="81"/>
-      <InputEndpoint name="http-8080" protocol="http" port="8080"/>
-      <InputEndpoint name="http-8081" protocol="http" port="8081"/>
+      <InputEndpoint name="http-80" protocol="http" port="80" />
+      <InputEndpoint name="http-81" protocol="http" port="81" />
+      <InputEndpoint name="http-8080" protocol="http" port="8080" />
+      <InputEndpoint name="http-8081" protocol="http" port="8081" />
       <InternalEndpoint name="TcpEndpoints" protocol="tcp">
-        <FixedPortRange min="9000" max="45000"/>
+        <FixedPortRange min="9000" max="45000" />
       </InternalEndpoint>
     </Endpoints>
   </WorkerRole>

@@ -192,25 +192,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Xero.Api, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xero.API.SDK.Minimal.2.0.23.0\lib\net40\Xero.Api.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xero.Api.Example.Applications, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xero.API.SDK.Minimal.2.0.23.0\lib\net40\Xero.Api.Example.Applications.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actors\IParkGrain.cs" />
     <Compile Include="Actors\ITestGrain.cs" />
     <Compile Include="Exceptions\HttpExceptionAttribute.cs" />
-    <Compile Include="Exceptions\OfferNotFoundException.cs" />
     <Compile Include="Auth\SecurityToken.cs" />
-    <Compile Include="Certificates\Certificates.cs" />
-    <Compile Include="Config\BingMapsConfig.cs" />
-    <Compile Include="Config\ZomatoConfig.cs" />
-    <Compile Include="Config\GooglePlacesConfig.cs" />
     <Compile Include="Models\Models.cs" />
     <Compile Include="Storage\Azure\AzureBlobInfo.cs" />
     <Compile Include="Storage\Memory\InMemoryIndexTable.cs" />
@@ -220,7 +207,6 @@
     <Compile Include="Utilities\ActorRequestContext.cs" />
     <Compile Include="Utilities\Network\Http\CertificateStore.cs" />
     <Compile Include="Utilities\Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Utilities\EmailClient.cs" />
     <Compile Include="Utilities\Extensions\LoggerExtensions.cs" />
     <Compile Include="Utilities\Extensions\ObjectExtensions.cs" />
     <Compile Include="Utilities\Network\Firewall.cs" />
@@ -232,7 +218,6 @@
     <Compile Include="Utilities\TableHelper.cs" />
     <Compile Include="Utilities\Observers\ObserverHelper.cs" />
     <Compile Include="Utilities\Observers\ObserverManager.cs" />
-    <Compile Include="Utilities\SmsService.cs" />
     <Compile Include="Utilities\Serialization\JsonSerialization.cs" />
     <Compile Include="Utilities\Config\HostingEnvironment.cs" />
     <Compile Include="Config\SiteConfig.cs" />

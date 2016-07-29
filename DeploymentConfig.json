@@ -3,7 +3,17 @@
     {
       "Id": "orleans",
       "Version": "1.0.0",
-      "DeploymentIds": [ "624f004bf80f4195a12692df4915c797" ]
+      "DeploymentIds": [ "f04d9ac4ced74ab5b4bd92b11e2da550" ]
+    },
+    {
+      "Id": "web",
+      "Version": "1.0.0",
+      "DeploymentIds": [ "f04d9ac4ced74ab5b4bd92b11e2da550" ]
+    },
+    {
+      "Id": "logretriever",
+      "Version": "1.0.0",
+      "DeploymentIds": [ "f04d9ac4ced74ab5b4bd92b11e2da550" ]
     }
   ]
 }

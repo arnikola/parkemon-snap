@@ -21,10 +21,10 @@ namespace ServiceCommon.Config
         public bool AlwaysIncludeErrorDetail { get; set; }
 
         [Default("http://localhost:80")]
-        [Default("http://yamsmelb.cloudapp.net:80", Environment = Environments.Melbourne)]
+        [Default("http://parkemonsnap.cloudapp.net:80", Environment = Environments.Production)]
         public List<string> ListenAddresses { get; set; }
 
-        [Default("Otterpop")]
+        [Default("")]
         public string SiteName { get; set; }
 
         [Default("80,443")]
@@ -34,7 +34,7 @@ namespace ServiceCommon.Config
         public string CertificateThumbprint { get; set; }
 
         [Default(null)]
-        [Default(@"C:\dev\Otterpop\Web\wwwroot", Environment = Environments.Dev)]
+        //[Default(@"C:\dev\Otterpop\Web\wwwroot", Environment = Environments.Dev)]
         public string OverrideWwwRoot { get; set; }
     }
 }

@@ -10,6 +10,6 @@
         /// <summary>
         /// Deployment Id for yamsmelb.cloudapp.net.
         /// </summary>
-        public const string Melbourne = "d4d6229b2c6e47dd882dc74f1952079e";
+        public const string Production = "d4d6229b2c6e47dd882dc74f1952079e";
     }
 }
