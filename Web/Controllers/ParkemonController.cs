@@ -14,5 +14,9 @@ namespace Web.Controllers
         [HttpGet]
         [Route("win")]
         public Task<string> Win() => GrainClient.GrainFactory.GetGrain<IParkGrain>(new Guid()).WinHackathon();
+
+        [HttpGet]
+        [Route("")]
+        public Task<string> Lol() => Task.FromResult("/lord 9:6");
     }
 }

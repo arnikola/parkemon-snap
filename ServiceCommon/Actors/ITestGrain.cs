@@ -18,7 +18,7 @@ namespace ServiceCommon.Actors
         public async Task InitializeTestra()
         {
             this.logger.Info("Initializing test data.");
-            var win = this.GrainFactory.GetGrain<IParkGrain>(new Guid());
+            var win = this.GrainFactory.GetGrain<IParkGrain>(0);
             await win.WinHackathon();
         }
 
