@@ -17,7 +17,7 @@ namespace ServiceCommon.Actors
 
     public class UserState : GrainState
     {
-        public int GBP { get; set; }
+        public int GBeeP { get; set; }
         public string Name { get; set; }
 
         public string ImageUrl { get; set; }
