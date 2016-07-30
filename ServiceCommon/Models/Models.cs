@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ServiceCommon.Models
 {
@@ -28,9 +29,27 @@ namespace ServiceCommon.Models
 
     [Immutable]
     [Serializable]
+    public class ParkData
+    {
+        public Guid Id { get; set; }
+        public List<Location> GeoFence { get; set; }
+        public string Description { get; set; }
+    }
+
+    [Immutable]
+    [Serializable]
     public class Location
     {
         public double Lat { get; set; }
         public double Long { get; set; }
+    }
+
+    [Immutable]
+    [Serializable]
+    public class FindResult
+    {
+        public Location Location { get; set; }
+        public string Name { get; set; }
+        public Guid Id { get; set; }
     }
 }

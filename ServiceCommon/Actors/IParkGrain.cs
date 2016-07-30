@@ -11,6 +11,8 @@ namespace ServiceCommon.Actors
     public interface IParkGrain : IGrainWithGuidKey
     {
         Task<string> WinHackathon();
+        Task<ParkState> Get();
+        Task Add(ParkData park);
     }
 
     public class ParkGrain : Grain<ParkState>, IParkGrain
@@ -20,12 +22,18 @@ namespace ServiceCommon.Actors
             return Task.FromResult("Congratulations guys!");
         }
 
+        public Task<ParkState> Get() => Task.FromResult(State);
+
+        public Task Add(ParkData park)
+        {
+            this.State.ParkData = park;
+            return this.WriteStateAsync();
+        }
     }
 
     public class ParkState : GrainState
     {
         public List<Bounty> Bounties { get; set; }
-        public Location Location { get; set; }
-        public string Description { get; set; }
+        public ParkData ParkData { get; set; }
     }
 }

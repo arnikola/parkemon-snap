@@ -386,6 +386,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\ParkController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ParkemonController.cs" />
     <Compile Include="Filters\ExceptionDetailsFilter.cs" />
     <Compile Include="Program.cs" />

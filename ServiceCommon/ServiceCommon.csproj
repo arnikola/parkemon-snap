@@ -194,6 +194,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\IUserGrain.cs" />
     <Compile Include="Actors\IParkGrain.cs" />
     <Compile Include="Actors\ITestGrain.cs" />
     <Compile Include="Exceptions\HttpExceptionAttribute.cs" />
