@@ -13,14 +13,10 @@ namespace Web.Controllers
     {
         [HttpGet]
         [Route("win")]
-<<<<<<< master
         public Task<string> Win() => GrainClient.GrainFactory.GetGrain<IParkGrain>(new Guid()).WinHackathon();
-=======
-        public Task<string> Win() => GrainClient.GrainFactory.GetGrain<IParkGrain>(0).WinHackathon();
 
         [HttpGet]
         [Route("")]
         public Task<string> Lol() => Task.FromResult("/lord 9:6");
->>>>>>> local
     }
 }
