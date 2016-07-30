@@ -8,7 +8,7 @@ namespace Web.Controllers
 {
     using ServiceCommon.Models;
 
-    [RoutePrefix("api/park")]
+    [RoutePrefix("api/parkemon")]
     public class ParkemonController : ApiController
     {
         [HttpGet]

@@ -7,4 +7,85 @@
     android:layout_height="match_parent"
     tools:context="com.daprlabs.aaron.parkemonsnapapp.UploadDataActivity">
 
+    <ImageView
+        android:layout_width="352dp"
+        android:layout_height="221dp"
+        android:id="@+id/takenPhotoView"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_upload_data"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toTopOf="@+id/activity_upload_data"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_upload_data"
+        android:layout_marginEnd="16dp" />
+
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/selectedMissionButton"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_upload_data"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/takenPhotoView"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:layout_width="277dp"
+        android:layout_height="89dp"
+        android:id="@+id/missionText"
+        tools:text="Mission Description"
+        app:layout_constraintLeft_toRightOf="@+id/selectedMissionButton"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/takenPhotoView"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_upload_data"
+        android:layout_marginEnd="16dp" />
+
+    <LinearLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_upload_data"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_upload_data"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_upload_data"
+        android:layout_marginBottom="16dp">
+
+        <ImageButton
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:id="@+id/cancelButton"
+            android:layout_gravity="left"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp"
+            android:layout_weight="0" />
+
+        <android.support.v4.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+            <ImageButton
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:id="@+id/confirmButton"
+                tools:layout_editor_absoluteX="104dp"
+            tools:layout_editor_absoluteY="0dp"
+                android:layout_weight="0" />
+
+    </LinearLayout>
+    <EditText
+        android:layout_width="352dp"
+        android:layout_height="73dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/descriptionText"
+        android:hint="Enter description..."
+        android:singleLine="false"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_upload_data"
+        android:layout_marginStart="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/missionText"
+        android:layout_marginTop="16dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_upload_data"
+        android:layout_marginEnd="16dp" />
 </android.support.constraint.ConstraintLayout>
