@@ -44,6 +44,10 @@ repositories {
         //image loading
         compile 'com.squareup.picasso:picasso:2.5.2'
 
+        //card view
+        compile 'com.android.support:cardview-v7:23.0.+'
+        compile 'com.android.support:recyclerview-v7:23.0.+'
+
     }
     mavenCentral()
 }
