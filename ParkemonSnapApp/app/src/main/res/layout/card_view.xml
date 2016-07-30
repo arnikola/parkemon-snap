@@ -11,7 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:srcCompat="@mipmap/parkexample"
+            android:id="@+id/parkImage" />
+
         <TextView
+            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_width="match_parent"
@@ -61,8 +68,9 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/star_big_off"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:srcCompat="@mipmap/bountysmall"
                 android:id="@+id/missionIcon"
                 android:layout_weight="1" />
 
@@ -76,8 +84,9 @@
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/btn_star_big_on"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                app:srcCompat="@mipmap/coinsmall"
                 android:id="@+id/gbpIcon"
                 android:layout_weight="1" />
 
