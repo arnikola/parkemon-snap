@@ -13,8 +13,8 @@ namespace Web.Controllers
     {
         [Route]
         [HttpGet]
-        public Task<ParkState> Get(Guid id) => Park(id).Get();
+        public Task<ParkState> Get(int id) => Park(id).Get();
 
-        private IParkGrain Park(Guid id) => GrainClient.GrainFactory.GetGrain<IParkGrain>(id);
+        private IParkGrain Park(int id) => GrainClient.GrainFactory.GetGrain<IParkGrain>(id);
     }
 }

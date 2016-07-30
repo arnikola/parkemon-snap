@@ -31,7 +31,7 @@ namespace ServiceCommon.Models
     [Serializable]
     public class ParkData
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public List<Location> GeoFence { get; set; }
         public string Description { get; set; }
     }
@@ -50,7 +50,8 @@ namespace ServiceCommon.Models
     {
         public Location Location { get; set; }
         public string Name { get; set; }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
+        public double Distance { get; set; }
     }
 
     public static class LocationUtility

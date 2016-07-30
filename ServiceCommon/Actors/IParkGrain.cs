@@ -8,7 +8,7 @@ using ServiceCommon.Utilities.Observers;
 
 namespace ServiceCommon.Actors
 {
-    public interface IParkGrain : IGrainWithGuidKey
+    public interface IParkGrain : IGrainWithIntegerKey
     {
         Task<string> WinHackathon();
         Task<ParkState> Get();
