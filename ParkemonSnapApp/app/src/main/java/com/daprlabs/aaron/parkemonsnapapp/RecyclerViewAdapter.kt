@@ -13,6 +13,7 @@ import android.widget.TextView
 class RecyclerViewAdapter
 (private val mDataset: Array<String>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
+
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -29,7 +30,6 @@ class RecyclerViewAdapter
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
         holder.mTextView.text = mDataset[position]
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
