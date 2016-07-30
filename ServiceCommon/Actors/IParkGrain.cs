@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Orleans;
 using Orleans.Runtime;
@@ -23,6 +24,8 @@ namespace ServiceCommon.Actors
 
     public class ParkState : GrainState
     {
-        
+        public List<Bounty> Bounties { get; set; }
+        public Location Location { get; set; }
+        public string Description { get; set; }
     }
 }

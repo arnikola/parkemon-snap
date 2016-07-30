@@ -1,31 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ServiceCommon.Models
 {
     using Orleans.Concurrency;
     
+    [Immutable]
     [Serializable]
-    internal enum HackathonStatus
+    public class Report
     {
-        Won,
-        NotWonYet,
-        KillingIt
+        public Guid ParkId { get; set; }
+        public string ImageUrl { get; set; }
+        public string Description { get; set; }
+        public Location Location { get; set; }
+        public Bounty Bounty { get; set; }
+        public string Status { get; set; }
     }
     
     [Immutable]
     [Serializable]
-    public class Update
+    public class Bounty
     {
-        public ParkDetails UpdateString { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Gbp { get; set; }
+        public string AchievmentImg { get; set; }
     }
-    
+
     [Immutable]
     [Serializable]
-    public class ParkDetails
+    public class Location
     {
-        public Guid Id { get; set; }
-        public string Details { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
     }
-    
 }

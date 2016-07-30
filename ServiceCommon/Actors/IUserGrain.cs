@@ -7,7 +7,7 @@ using ServiceCommon.Utilities.Observers;
 
 namespace ServiceCommon.Actors
 {
-    public interface IUserGrain : IGrainWithGuidKey
+    public interface IUserGrain : IGrainWithStringKey
     {
     }
 
@@ -17,6 +17,10 @@ namespace ServiceCommon.Actors
 
     public class UserState : GrainState
     {
-        
+        public int GBP { get; set; }
+        public string Name { get; set; }
+
+        public string ImageUrl { get; set; }
+        public string Email { get; set; }
     }
 }
