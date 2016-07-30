@@ -11,7 +11,7 @@ package com.daprlabs.aaron.parkemonsnapapp.models
  * Created by Default on 30/07/2016.
  */
 
-data class Park(var ParkId : Int , var ImageUrl : String, var Description : String, var Location : String, var Bounty : String, var Status : String)
+data class Park(var ParkId : Int , var ImageUrl : String, var Description : String, var Location : Location, var Bounty : Bounty, var Status : String)
 
 //
 //[Immutable]
@@ -37,7 +37,7 @@ data class Bounty(var Title : String, var Description: String, var Gpb : Int, va
 //    public string Description { get; set; }
 //}
 
-data class ParkData(var Guid : Int, var GeoFence : String, var Description: String)
+data class ParkData(var Guid : Int, var GeoFence : List<Location>, var Description: String)
 
 
 
